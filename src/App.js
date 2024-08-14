@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { EditForm } from './EditForm';
 
 function App() {
+  const onSubmitSuccess = (entity) => {
+    console.log("Form submitted successfully", entity);
+  };
+
+  const editEntries = [
+    { attribute: "name", attributeName: "Name", type: "Text", isRequired: true },
+    // Add more fields as needed
+  ];
+
+  const entityObj = {
+    name: "John Doe"
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Edit Form Example</h1>
+      <EditForm
+        title="Edit Entry"
+     //   description="Edit the following fields:"
+       // editEntries={editEntries}
+       // entityObj={entityObj}
+        //onSubmitSuccess={onSubmitSuccess}
+      />
     </div>
   );
 }
